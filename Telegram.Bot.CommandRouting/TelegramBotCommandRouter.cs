@@ -42,14 +42,11 @@ namespace Telegram.Bot.CommandRouting
                         continue;
                     await CheckAuthorizaion(method, authorizationAttribute, update);
                     var parameterValues = GetParameterValues(parameters, update);
-
                     controller.TelegramUpdate = update;
-
                     await InvokeMethod(method, controller, parameterValues);
                     return true;
                 }
             }
-
             return false;
         }
 
@@ -99,6 +96,7 @@ namespace Telegram.Bot.CommandRouting
                 if (parameter.ParameterType != typeof(string) && parameterValue is null ||
                     property.PropertyType != parameter.ParameterType)
                     throw new Exception();
+                parameterValues[i++] = parameterValue;
             }
 
             return parameterValues;
