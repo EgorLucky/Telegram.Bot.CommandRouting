@@ -6,12 +6,12 @@ namespace Telegram.Bot.CommandRouting
 {
     public class TelegramBotCommandRouter
     {
-        private readonly IReadOnlyCollection<TelegramBotController> _controllers;
+        private readonly IEnumerable<TelegramBotController> _controllers;
         private readonly IAuthorizationChatHandler _authorizationChatHandler;
         private readonly long _botId;
 
         public TelegramBotCommandRouter(
-            IReadOnlyCollection<TelegramBotController> controllers,
+            IEnumerable<TelegramBotController> controllers,
             ITelegramBotClient client,
             IAuthorizationChatHandler authorizationChatHandler = null)
         {
