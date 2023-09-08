@@ -5,20 +5,20 @@ using Telegram.Bot.Types.Enums;
 
 namespace Telegram.Bot.CommanndRouting
 {
-    internal class TelegramBotRegexTextCommandAttributeValidator : ITelegramBotCommandAttributeValidator
+    internal class TelegramBotInlineQueryValidator : ITelegramBotCommandAttributeValidator
     {
         private Regex[] regexes;
 
-        public TelegramBotRegexTextCommandAttributeValidator(string[] regexPatterns)
+        public TelegramBotInlineQueryValidator(string[] regexPatterns)
         {
             regexes = regexPatterns.Select(p => new Regex(p)).ToArray();
         }
 
         public bool Validate(Update update, long botId)
         {
-            if (update is { Type: UpdateType.Message, Message.Type: MessageType.Text })
+            if (update is { Type: UpdateType.InlineQuery })
             {
-                var text = update.Message.Text?.ToLower();
+                var text = update.InlineQuery.Query?.ToLower();
                 return regexes is not null && regexes.Any(r => r.IsMatch(text));
             }
 

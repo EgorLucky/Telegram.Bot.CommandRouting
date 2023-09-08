@@ -4,11 +4,11 @@ using Telegram.Bot.Types.Enums;
 
 namespace Telegram.Bot.CommanndRouting
 {
-    internal class TelegramBotTextCommandAttributeValidator : ITelegramBotCommandAttributeValidator
+    internal class TelegramBotTextValidator : ITelegramBotCommandAttributeValidator
     {
         private string[] commandNames;
 
-        public TelegramBotTextCommandAttributeValidator(string[] commandNames)
+        public TelegramBotTextValidator(string[] commandNames)
         {
             this.commandNames = commandNames;
         }
