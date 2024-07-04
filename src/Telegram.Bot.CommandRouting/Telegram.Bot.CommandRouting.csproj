@@ -5,11 +5,11 @@
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
     <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
-    <AssemblyVersion>1.0.4</AssemblyVersion>
-    <Version>1.0.4</Version>
+    <AssemblyVersion>1.0.5</AssemblyVersion>
+    <Version>1.0.5</Version>
   </PropertyGroup>
 
   <ItemGroup>
-	  <PackageReference Include="Telegram.Bot" Version="17.0.0" />
+	  <PackageReference Include="Telegram.Bot" Version="19.0.0" />
   </ItemGroup>
 </Project>

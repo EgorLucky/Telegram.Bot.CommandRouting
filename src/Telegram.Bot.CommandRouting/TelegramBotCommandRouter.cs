@@ -137,8 +137,7 @@ namespace Telegram.Bot.CommandRouting
             {
                 var allowAnonymousAttribute = method
                     .GetCustomAttributes(false)
-                    .Where(a => a is TelegramBotAllowAnonymousChatAttribute)
-                    .FirstOrDefault();
+                    .FirstOrDefault(a => a is TelegramBotAllowAnonymousChatAttribute);
 
                 if (allowAnonymousAttribute == null)
                     if (_authorizationChatHandler != null)
