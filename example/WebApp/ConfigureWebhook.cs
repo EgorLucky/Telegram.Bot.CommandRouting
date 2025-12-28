@@ -28,7 +28,7 @@ public class ConfigureWebhook : IHostedService
         // Since nobody else knows your bot's token, you can be pretty sure it's us.
         var webhookAddress = @$"{_botConfig.HostAddress}/bot/{_botConfig.BotToken}";
         _logger.LogInformation("Setting webhook: {WebhookAddress}", webhookAddress);
-        await botClient.SetWebhookAsync(
+        await botClient.SetWebhook(
             url: webhookAddress,
             allowedUpdates: Array.Empty<UpdateType>(),
             cancellationToken: cancellationToken);
@@ -41,6 +41,6 @@ public class ConfigureWebhook : IHostedService
 
         // Remove webhook upon app shutdown
         _logger.LogInformation("Removing webhook");
-        await botClient.DeleteWebhookAsync(cancellationToken: cancellationToken);
+        await botClient.DeleteWebhook(cancellationToken: cancellationToken);
     }
 }

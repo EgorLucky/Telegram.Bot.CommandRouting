@@ -17,7 +17,7 @@ namespace Telegram.Bot.CommandRouting
         {
             _controllers = controllers;
             _authorizationChatHandler = authorizationChatHandler;
-            _botId = client.BotId.Value;
+            _botId = client.BotId;
         }
 
         public async Task<bool> TryRunCommand(Update update)

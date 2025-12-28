@@ -8,7 +8,7 @@ var builder = WebApplication.CreateBuilder(args);
 
 var botConfig = new BotConfiguration
 {
-    BotToken = builder.Configuration.GetValue<string>("botTokenDev"),
+    BotToken = builder.Configuration.GetValue<string>("botToken"),
     HostAddress = builder.Configuration.GetValue<string>("webAppHost"),
 };
 
@@ -23,7 +23,7 @@ builder.Services
     .AddScoped<TelegramBotController, AllChatTypesController>()
     .AddScoped<IAuthorizationChatHandler, AuthorizationChatHandler>();
 
-builder.Services.AddControllers().AddNewtonsoftJson();
+builder.Services.AddControllers();
 
 var app = builder.Build();
 

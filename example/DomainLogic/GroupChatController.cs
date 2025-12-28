@@ -36,7 +36,7 @@ namespace DomainLogic
                 nameof(Telegram.Bot.Types.Chat.Title))]
             string chatName)
         {
-            await _bot.SendTextMessageAsync(chatId, $"bot invited to chat with name = {chatName} and id = {chatId}");
+            await _bot.SendMessage(chatId, $"bot invited to chat with name = {chatName} and id = {chatId}");
         }
 
         [TelegramBotTextCommand("/hello_bot", "/hello bot")]
@@ -60,7 +60,7 @@ namespace DomainLogic
                 nameof(Message.From),
                 nameof(User.LastName))]  string lastName)
         {
-            await _bot.SendTextMessageAsync(chatId, $"Hello {firstName} {lastName}! Your userId = {userId}");
+            await _bot.SendMessage(chatId, $"Hello {firstName} {lastName}! Your userId = {userId}");
         }
 
         [TelegramBotTextCommand("/good_morning")]
@@ -77,7 +77,7 @@ namespace DomainLogic
                 nameof(Telegram.Bot.Types.Chat.Title))]
             string chatName)
         {
-            await _bot.SendTextMessageAsync(chatId, $"Good morning, members of {chatName}!");
+            await _bot.SendMessage(chatId, $"Good morning, members of {chatName}!");
         }
     } 
 }

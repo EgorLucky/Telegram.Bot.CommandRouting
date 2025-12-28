@@ -23,7 +23,7 @@ namespace DomainLogic
                 nameof(Chat.Id))]
             long userId)
         {
-            await _bot.SendTextMessageAsync(userId, $"your random number is {Random.Shared.Next()}");
+            await _bot.SendMessage(userId, $"your random number is {Random.Shared.Next()}");
         } 
     }
 }

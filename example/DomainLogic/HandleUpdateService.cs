@@ -62,7 +62,7 @@ namespace DomainLogic
             _logger.LogInformation("HandleError: {ErrorMessage}", ErrorMessage);
             try
             {
-                await _botClient.SendTextMessageAsync(chatId, exception.ToString());
+                await _botClient.SendMessage(chatId, exception.ToString());
             }
             catch (Exception ex)
             {
